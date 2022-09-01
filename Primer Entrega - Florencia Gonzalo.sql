@@ -1,3 +1,5 @@
+hola flor
+
 CREATE TABLE `centros` (
   `id_centro` int NOT NULL AUTO_INCREMENT,
   `mail` varchar(45) NOT NULL DEFAULT '50',
