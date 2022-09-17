@@ -1,0 +1,30 @@
+-- Funcion 1
+
+CREATE DEFINER=`root`@`localhost` FUNCTION `fn_promedio_trimestral`(p_date datetime, p_id_centro int)
+RETURNS decimal(11,4)
+READS SQL DATA
+BEGIN
+	declare promedio_trimestral decimal (11,4);
+  set promedio_trimestral = 
+	(select avg(monto)
+    from transacciones 
+    where fecha between DATE_SUB(p_date, interval 90 day) and p_date
+    and id_centro = p_id_centro); 
+    
+    
+RETURN promedio_trimestral;
+END
+
+
+
+
+-- Funcion 2
+
+CREATE DEFINER=`root`@`localhost` FUNCTION `fn_quantil`(p_available decimal(11,4), p_quantil decimal(3,2))
+RETURNS decimal(11,4)
+NO SQL
+BEGIN
+	declare quantil decimal(11,4);
+  set quantil = p_quantil*p_available;
+RETURN quantil;
+END
