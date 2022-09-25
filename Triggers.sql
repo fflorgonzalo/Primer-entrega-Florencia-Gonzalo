@@ -1,3 +1,4 @@
+-- Trigger 1: Auditoría sobre cada nuevo centro creado
 
 drop trigger if exists `proyecto_final_SQL`.`centros_insert_after`;
 
@@ -12,6 +13,8 @@ BEGIN
 END$$
 DELIMITER ;
 
+
+-- Trigger 2: Auditoría sobre cada nuevo centro eliminado
 
 drop trigger if exists `proyecto_final_SQL`.`centros_delete_before`;
 
